@@ -97,8 +97,8 @@ cd ISDE
 conda create -n isde-finetune
 conda activate isde-finetune
 conda install -r finetune-based_FSL/requirements.txt
-conda create -n isde-top model 
-conda activate isde-top model 
+conda create -n isde-top_model 
+conda activate isde-top_model 
 conda install -r top_model-based_FSL/requirements.txt
 ```
 
