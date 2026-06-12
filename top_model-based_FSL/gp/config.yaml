@@ -1,0 +1,52 @@
+other:
+  dataset: ???                   # 待填充的数据集名称
+  cv_scheme: null                # 交叉验证方案 (null表示不启用)
+  seed: 2024                     # 随机种子
+  overwrite: false               # 是否覆盖已有结果
+  use_gpu: true                  # 是否启用GPU加速
+  progress_bar: true             # 是否显示进度条
+
+### 优化器参数
+optim:
+  n_steps: 150                   # 训练迭代次数
+  lr: 0.1                        # 学习率
+  progress_bar: false            # 训练时是否显示进度条
+
+### 数据路径配置
+data:
+  data_dir: output                 # 数据根目录
+  paths:
+    reference_file: data/DMS_substitutions.csv
+    DMS_input_folder: ${data.data_dir}/cv_folds_singles_substitutions
+    conditional_probs: ${data.data_dir}/conditional_probs/ProteinMPNN
+    raw_conditional_probs: ${data.data_dir}/conditional_probs/raw_ProteinMPNN_outputs
+    embeddings_singles: ${data.data_dir}/embeddings/substitutions_singles/ESM2
+    embeddings_multiples: ${data.data_dir}/embeddings/substitutions_multiples/ESM2
+    pdbs: ${data.data_dir}/structures/pdbs
+    coords: ${data.data_dir}/structures/coords
+    zero_shot: ${data.data_dir}/zero_shot_fitness_predictions
+    output_folder: outputs
+    calibration_metrics: results/calibration_metrics
+    merged_scores: results/merged_scores
+    processed_scores: results/processed_scores
+    model_path: /data1/users/weig03/data/pre_train_model/ESM/model/esm2_t33_650M_UR50D
+    seq_path: /data1/users/weig03/data/Focus_work/EvolvePro-main/data/dms/wt_fasta
+
+### 模型核配置
+kernel:
+  composite_kernel:
+    h_lengthscale: 1.0           # Hellinger距离长度尺度
+    d_lengthscale: 1.0           # 空间距离长度尺度
+    p_lengthscale: 1.0           # 概率差异长度尺度
+    r_lengthscale: 1.0           # 相对位置长度尺度    
+    nu: 0.5                     # Matern核的参数         
+    use_site_comparison: true      # 位点比较核
+    use_mutation_comparison: true   # 突变比较核
+    use_distance_comparison: true   # 空间距离核
+    use_rel_pos_comparison: false   # 相对位置核
+    use_sequence_comparison: true   # 序列比较核
+    use_matern_sequence_kernel: false  # 使用Matern序列核
+  prior:                         # 先验参数
+    use: true                    # 是否使用先验
+    noise_prior_scale: 0.1       # 噪声先验尺度
+  use_zero_shot: true            # 是否使用零样本预测
