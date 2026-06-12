@@ -1,5 +1,7 @@
 # Finetune-based FSL User Guide
 
+conda activate isde-finetune
+
 ## Part 1. Reproducing Finetune-based FSL Baselines (Chapter 1 & Chapter 2)
 
 ### Step 1. Dataset Preparation

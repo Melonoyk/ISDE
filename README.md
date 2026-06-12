@@ -159,7 +159,7 @@ finetune-based_FSL/README.md
 See:
 
 ```text
-top_model-based_FSL/Top_Model_Based_FSL_Guide.md
+top_model-based_FSL/README.md
 ```
 
 ---

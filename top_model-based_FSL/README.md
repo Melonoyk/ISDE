@@ -1,5 +1,7 @@
 # Top Model-based FSL User Guide
 
+conda activate isde-top_model 
+
 ## Part 1. Reproducing Top Model-based FSL Baselines (Chapter 1 & Chapter 2)
 
 ### Step 1. Raw Data Preparation
